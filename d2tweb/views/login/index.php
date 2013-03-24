@@ -13,33 +13,32 @@
 
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery.mousewheel.min.js"></script>
-    <script type="text/javascript">
+    <script language="javascript">
         $(document).ready(function(){
-            $('form').submit(function(){
+            $('#frmLogin').submit(function(){
                 var user = $('input[name="username"]').val();
                 var pass = $('input[name="password"]').val();
                 if(user=='' || pass==''){
-                    $('#error').text("Vui lòng nhập tài khoản và mật khẩu!");
+                    $('p').text("Tài khoản hoặc mật khẩu không để trống!");
                     return false;
                 }else{
                     $.ajax({
                         type: 'POST'
-                        ,url: 'login.php'
-                        ,data: {adm_user:""+user+"", adm_pass:""+pass+""}
+                        ,url: 'login/process'
+                        ,data: {username:""+user+"", password:""+pass+""}
                         ,dataType: 'html'
                         ,beforeSend: function(){
-                            $('#frmLogin').hide();
-                            $('#login').html('<div style="text-align: center; margin: 40% 0;"><img src="<?php echo img_url(); ?>/preloader-w8-cycle-white.gif" /></div>');
+                            $('p').html('<img src="<?php echo img_url(); ?>/preloader-w8-line-white.gif" />');
                           }
                         ,success: function(string){
-    							var getData = $.parseJSON(string);
-    							if(!getData==''){
-    							 $('span').text(getData.msg);
-    							 return false;
-    							}else{
-    								window.location= '../partsite/index.php';
-    								}
-                          }
+							var getData = $.parseJSON(string);
+							if(getData.err){
+							 $('p').text(getData.err);
+							 return false;
+                            }else{
+                                window.location= getData.url;
+							}
+                      }
                     });
                 }
                 return false;
@@ -47,26 +46,24 @@
         })
     
     </script>
-
 </head>
 
 <body class="modern-ui bg-color-red" onload="prettyPrint()">
 <section id="login" class="span3">
-    <form id="frmLogin" class="span3" method="post" action="">
+    <form id="frmLogin" class="span3" method="post" action="process">
         <h2>Đăng nhập</h2>
+         <?php //if(! is_null($msg)){ echo $msg;};?>  
         <div class="input-control text">
             <input name="username" type="text" placeholder="Tài khoản" />
+            <?php echo form_error('username'); ?>
         </div>
         <div class="input-control password">
             <input name="password" type="password" placeholder="Mật khẩu" />
+            <?php echo form_error('password'); ?>
         </div>
-        <label class="input-control checkbox">
-            <input type="checkbox" />
-            <span class="helper">Ghi nhớ?</span>
-        </label>
         <div class="control">
-            <input id="submitLogin" class=" bg-color-red border-color-white" type="submit" value="Đăng nhập"/>
-            <p id="error" class="fg-color-white"></p>
+            <input class=" bg-color-red border-color-white" type="submit" value="Đăng nhập"/>
+            <p class="fg-color-white"></p>
         </div>
     </form>
 </section>

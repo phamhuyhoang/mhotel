@@ -7,13 +7,18 @@ class Home extends CI_Controller {
     public function __construct(){
         parent::__construct();
 		$this->load->helper("url");
+        if(! $this->session->userdata('validated')){
+            redirect('login');
+        }
 		
 		$this->load->library("layout"); // Nap thu vien layout
         $this->layout->setLayout("layout"); //Set file layout
 		
     }
+
 	public function index(){
 	   $data['title'] = 'Trang chủ';
+       $data['sess']  = $this->session->userdata('username');
        $this->layout->view("home/index", $data);
 	}
     public function profile(){}

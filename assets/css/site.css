@@ -17,6 +17,7 @@ body {
 #header .brand{ margin-left: 0;}
 .room-desc{
     background-color: #fff;
+    z-index: 2;
 }
 .room-desc a{
     color: #353535 !important;

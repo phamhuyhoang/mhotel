@@ -13,6 +13,7 @@
 
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery.validate.js"></script>
 
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/dropdown.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/accordion.js"></script>
@@ -81,9 +82,21 @@
             </ul>
             
             <ul class="menu">
-                <li style="padding-top: 3px; float: right;">
-                    <a href="<?php echo base_url('login')?>"><i class="icon-user fg-color-white"></i> Đăng nhập</a>
-                </li>
+                <?php if(!$this->session->userdata('username')): ?>
+                    <li style="padding-top: 3px; float: right;">
+                        <a href="<?php echo base_url('login')?>"><i class="icon-user fg-color-white"></i> Đăng nhập</a>
+                    </li>
+                <?php else: ?>
+                    <li data-role="dropdown" style="padding-top: 3px; float: right;">
+                        <a href="#"><i class="icon-user fg-color-white"></i><?php echo ' '.$this->session->userdata('username'); ?></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="home"><i class="icon-grid"></i> Quản lý</a></li>
+                            <li><a href="#"><i class="icon-cog"></i> Cài đặt</a></li>
+                            <li class="divider"></li>
+                            <li><a href="site/logout"><i class="icon-switch"></i> Thoát</a></li>
+                        </ul>
+                    </li>
+                <?php endif; ?>
             </ul>
                 
         </div>
