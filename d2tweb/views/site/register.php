@@ -141,7 +141,7 @@
                 <?php echo form_error('username'); ?>
             </div>
             <div class="input-control password">
-                <input name="password" type="password" placeholder="Mật khẩu" />
+                <input id="password" name="password" type="password" placeholder="Mật khẩu" />
                 <?php echo form_error('password'); ?>
             </div>
             <div class="input-control password">
@@ -150,9 +150,111 @@
                 <?php echo form_error('passfix'); ?>
             </div>
             <div class="control">
-                <input class=" bg-color-red border-color-white" type="submit" value="Đăng ký"/>
-                <input class=" bg-color-red border-color-white" type="submit" value="làm lại"/>
+                <input class=" bg-color-red fg-color-white" type="submit" value="Đăng ký"/>
+                <input class=" bg-color-red fg-color-white" type="reset" value="Làm lại"/>
             </div>
         </form>
     </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z]+$/i.test(value);
+    }, "Please enter only letters");
+ 
+    // validate contact form on keyup and submit
+    $("#frmRegister").validate({
+ 
+        //set the rules for the fild names
+        rules: {
+            full_name: {
+                required: true,
+                minlength: 5,
+                maxlength:25
+            },
+            hotel_name: {
+                required: true,
+                minlength: 5,
+            },
+            mobile: {
+                minlength: 10,
+                maxlength: 11
+            },
+            phone: {
+                minlength: 5,
+                maxlength: 11
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            address: {
+                required: true,
+            },
+            username: {
+                required: true,
+                minlength: 5,
+                lettersonly: true
+            },
+            password: {
+                required: true,
+                minlength: 5
+            },
+            passconf: {
+                required: true,
+                minlength: 5,
+                equalTo: "#password"
+            }
+        },
+ 
+        //set error messages
+        messages: {
+            full_name: {
+                required: "Không để trống!",
+                minlength: "Họ tên từ 5 ký tự trở lên",
+                maxlength: "Họ tên dưới 25 ký tự"
+            },
+            hotel_name: {
+                required: "Không để trống!",
+                minlength: "Tên khách sạn từ 5 ký tự trở lên"
+            },
+            mobile: {
+                number: true,
+                minlength: "Điện thoại từ 10 số",
+                maxlength: "Điện thoại đã quá 11 số"
+            },
+            phone: {
+                number: true,
+                minlength: "Điện thoại từ 5 ký tự trở lên",
+                maxlength: "Điện thoại đã quá 11 số"
+            },
+            email: {
+                required: "Không để trống!",
+                email: "email không hợp lệ"
+            },
+            username: {
+                required: "Không để trống",
+                minlength: "Tài khoản từ 5 ký tự trở lên"
+            },
+            password: {
+                required: "Không để trống!",
+                minlength: "Mật khẩu từ 5 ký tự trở lên"
+            },
+            passconf: {
+                required: "Không để trống!",
+                equalTo: "Mật khẩu không trùng nhau"
+            }
+        },
+ 
+        //our custom error placement
+        errorElement: "p",
+        errorPlacement: function(error, element) {
+                error.appendTo(element.parent());
+                element.parent().addClass('fg-color-yellow');
+                
+            }
+ 
+    });
+});
+</script>
