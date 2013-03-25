@@ -29,13 +29,19 @@ class Login extends CI_Controller {
         
         if ($this->input->post() && $this->form_validation->run() == TRUE){
             // Validate the user can login
-            $this->login_model->validate();
-            $msg = array('url' => 'home');            
-            echo json_encode($msg);
-            return false;
+            $rs = $this->login_model->validate();
+            
+            if($rs){
+                $msg = array('url' => 'home');        
+                echo json_encode($msg);
+                return false;
+            }else{
+                $msg = array('err' => "Tài khoản hoặc mật khẩu không đúng!");            
+                echo json_encode($msg);
+            } 
         }else{
             $msg = array('err' => "Tài khoản hoặc mật khẩu không đúng!");            
             echo json_encode($msg);
-        }       
+        } 
     }
 }

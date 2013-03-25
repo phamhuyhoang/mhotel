@@ -66,7 +66,7 @@
         <div class="nav-bar-inner padding10">
             <span class="pull-menu"></span>
     
-            <a href="<?php base_url();?>"><span class="element brand">
+            <a href="<?php echo base_url('site/index');?>"><span class="element brand">
                 <img class="place-left" src="<?php echo img_url(); ?>/logo32.png" style="height: 20px"/>
                 Hotel Manager <small>v.1</small>
             </span></a>
@@ -74,11 +74,19 @@
             <div class="divider"></div>
     
             <ul class="menu">
-                <li><a href="index.php">Trang chủ</a></li>
-                <li><a href="index.php">Giới thiệu</a></li>
-                <li><a href="index.php">Tính năng</a></li>
-                <li><a href="index.php">Bảng giá</a></li>
-                <li><a href="index.php">Liên hệ</a></li>
+                <?php if(strstr(uri_string(), '/', true) == 'site'): ?>
+                    <li><?php echo anchor('site/index', 'Trang chủ'); ?></li>
+                    <li><?php echo anchor('site/about', 'Giới thiệu'); ?></li>
+                    <li><?php echo anchor('site/feature', 'Tính năng'); ?></li>
+                    <li><?php echo anchor('site/price', 'Bảng giá'); ?></li>
+                    <li><?php echo anchor('site/contect', 'Liên hệ'); ?></li>
+                <?php else: ?>
+                    <li><?php echo anchor('home/index', 'Trang chủ'); ?></li>
+                    <li><?php echo anchor('room/index', 'Quản lý phòng'); ?></li>
+                    <li><?php echo anchor('site/index', 'Nhân viên'); ?></li>
+                    <li><?php echo anchor('site/index', 'Thống kê'); ?></li>
+                    <li><?php echo anchor('info/index', 'Thông tin'); ?></li>
+                <?php endif; ?>
             </ul>
             
             <ul class="menu">
@@ -90,10 +98,10 @@
                     <li data-role="dropdown" style="padding-top: 3px; float: right;">
                         <a href="#"><i class="icon-user fg-color-white"></i><?php echo ' '.$this->session->userdata('username'); ?></a>
                         <ul class="dropdown-menu">
-                            <li><a href="home"><i class="icon-grid"></i> Quản lý</a></li>
+                            <li><?php echo anchor('home/index', '<i class="icon-grid"></i> Quản lý</a>') ?></li>
                             <li><a href="#"><i class="icon-cog"></i> Cài đặt</a></li>
                             <li class="divider"></li>
-                            <li><a href="site/logout"><i class="icon-switch"></i> Thoát</a></li>
+                            <li><?php echo anchor('site/logout', '<i class="icon-switch"></i> Thoát'); ?></li>
                         </ul>
                     </li>
                 <?php endif; ?>

@@ -17,7 +17,7 @@ class Home extends CI_Controller {
     }
 
 	public function index(){
-	   $data['title'] = 'Trang chủ';
+	   $data['title'] = 'Quản lý phòng khác sạn';
        $data['sess']  = $this->session->userdata('username');
        $this->layout->view("home/index", $data);
 	}
