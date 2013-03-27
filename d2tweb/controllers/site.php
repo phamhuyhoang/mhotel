@@ -26,7 +26,6 @@ class Site extends CI_Controller {
         
         //validation form register
         $this->form_validation->set_rules('full_name', 'Full name', 'required|min_length[7]|xss_clean');
-        $this->form_validation->set_rules('hotel_name', 'Hotel name', 'required|min_length[10]|xss_clean');
         $this->form_validation->set_rules('mobile', 'Mobile', 'numeric|min_length[10]|max_length[11]|xss_clean');
         $this->form_validation->set_rules('phone', 'Phone', 'numeric|min_length[5]|max_length[12]|xss_clean');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_emails');
@@ -42,7 +41,6 @@ class Site extends CI_Controller {
                 $now = date("Y-m-d H:i:s");
                 $insert_data = array(
                     'full_name'  => $this->input->post('full_name', TRUE),
-                    'hotel_name' => $this->input->post('hotel_name', TRUE),
                     'mobile'     => $this->input->post('mobile', TRUE),
                     'phone'      => $this->input->post('phone', TRUE),
                     'email'      => $this->input->post('email', TRUE),
@@ -53,12 +51,21 @@ class Site extends CI_Controller {
                 );
                 
                 $this->user_model->insert_user($insert_data);
-                
-                redirect('login/index');
+                $this->session->set_userdata('welcome_name', $this->input->post('full_name', TRUE));
+                redirect('site/welcome');
             }
             
         }
         $this->layout->view('site/register', $data);
+    }
+    
+    public function welcome(){
+        $data['title'] = 'Welcome';
+        $data['welcome_name'] = $this->session->userdata('welcome_name');
+        if($data['welcome_name'] == null){
+            redirect('site/index');
+        }
+        $this->layout->view('site/welcome', $data);
     }
     
     public function logout(){

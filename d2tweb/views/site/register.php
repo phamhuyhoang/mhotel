@@ -117,10 +117,6 @@
                 <?php echo form_error('full_name'); ?>
             </div>
             <div class="input-control text">
-                <input name="hotel_name" type="text" placeholder="Tên khách sạn" />
-                <?php echo form_error('hotel_name'); ?>
-            </div>
-            <div class="input-control text">
                 <input name="mobile" type="text" placeholder="Mobile" />
                 <?php echo form_error('mobile'); ?>
             </div>
@@ -173,10 +169,6 @@ $(document).ready(function() {
                 minlength: 5,
                 maxlength:25
             },
-            hotel_name: {
-                required: true,
-                minlength: 5,
-            },
             mobile: {
                 minlength: 10,
                 maxlength: 11
@@ -214,10 +206,6 @@ $(document).ready(function() {
                 required: "Không để trống!",
                 minlength: "Họ tên từ 5 ký tự trở lên",
                 maxlength: "Họ tên dưới 25 ký tự"
-            },
-            hotel_name: {
-                required: "Không để trống!",
-                minlength: "Tên khách sạn từ 5 ký tự trở lên"
             },
             mobile: {
                 number: true,

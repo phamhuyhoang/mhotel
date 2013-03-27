@@ -137,3 +137,19 @@
         </tbody>
     </table>
 </div>
+<?php if(!$check_hotel): ?>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var form = '<form id="frmHotel" class="span5" method="post" action="#"><div class="input-control text"><input name="hotel_name" type="text" placeholder="Tên khách sạn" /></div><div class="input-control text"><input name="address" type="text" placeholder="Địa chỉ" /></div><div class="input-control text"><input name="phone" type="text" placeholder="Điện thoại" /></div><div class="input-control text"><input name="email" type="text" placeholder="Email" /></div><div class="input-control text"><div class="input-control textarea"><textarea placeholder="Mô tả"></textarea></div></form>';
+            $.Dialog({
+                'title'      : 'Đăng ký khách sạn',
+                'content'    : form,
+                'buttons'    : {
+                    'Ok'    : {
+                        'action': function(){}
+                    }
+                }
+            });
+        });
+    </script>
+<?php endif; ?>
