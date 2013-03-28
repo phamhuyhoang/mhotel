@@ -6,13 +6,17 @@ class Hotel_model extends CI_Model{
     }
     
     function list_hotel(){}
-    function insert_hotel(){}
+    function insert_hotel($insert_data){
+        $this->db->insert('hotels', $insert_data);
+    }
     function update_hotel(){}
     function search_hotel(){}
-    function get_hotel($user_id = null){
+    function get_hotel($user_id){
         $this->db->select('*');
         $this->db->from('hotels');
-        $this->db->where('user_id=', $user_id);
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get();
+        return $query->result();
     }
     
 }

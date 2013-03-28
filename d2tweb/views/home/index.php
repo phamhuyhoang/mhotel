@@ -137,4 +137,5 @@
         </tbody>
     </table>
 </div>
+
 <?php if(!$check_hotel) require_once('dialog_hotel.php'); ?>

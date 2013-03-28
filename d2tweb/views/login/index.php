@@ -24,7 +24,7 @@
                 }else{
                     $.ajax({
                         type: 'POST'
-                        ,url: 'login/process'
+                        ,url: '<?php echo base_url(); ?>login/process'
                         ,data: {username:""+user+"", password:""+pass+""}
                         ,dataType: 'html'
                         ,beforeSend: function(){
