@@ -14,6 +14,9 @@
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery-1.9.0.min.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/assets/jquery.validate.js"></script>
+    
+    <script type="text/javascript" src="<?php echo js_url(); ?>/jqueryui/jquery-ui-1.10.2.custom.min.js"></script>
+    <link href="<?php echo js_url(); ?>/jqueryui/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/dropdown.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/accordion.js"></script>
@@ -26,6 +29,7 @@
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/tile-slider.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/tile-drag.js"></script>
     <script type="text/javascript" src="<?php echo js_url(); ?>/modern/dialog.js"></script>
+    
     <script type="text/javascript">
         $(document).ready(function(){
             $('#staticDialog').click(function(e) {
