@@ -102,33 +102,46 @@
 
 <div class="row">
     <h2>Khách hàng</h2>
-    <table class="bordered striped">
+    <div>
+        <button class="bg-color-red fg-color-white">
+            <i class="icon-plus-2"></i>
+            Thêm khách hàng
+        </button>
+                
+        <div class="input-control select span3" style="float: right;">
+            <select>
+                <option>Chọn thao tác</option>
+                <option>Đang ở</option>
+            </select>
+        </div>
+    </div>
+    <table class="bordered ">
         <thead>
             <tr>
-                <th>Họ tên</th>
-                <th>Giới tính</th>
-                <th>CMND</th>
-                <th>Điện thoại</th>
-                <th>Địa chỉ</th>
+                <th><input type="text" placeholder="Họ tên" /></th>
+                <th><input type="text" placeholder="Giới tính" /></th>
+                <th><input type="text" placeholder="CMND" /></th>
+                <th><input type="text" placeholder="Điện thoại" /></th>
+                <th><input type="text" placeholder="Địa chỉ" /></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Đàm Đức trọng</td>
+                <td>Đàm Đức Trọng</td>
                 <td>Nam</td>
                 <td>121913177</td>
                 <td>0985699138</td>
                 <td>Yên Dũng, Bắc giang</td>
             </tr>
             <tr>
-                <td>Đàm Đức trọng</td>
+                <td>Đàm ĐứcTtrọng</td>
                 <td>Nam</td>
                 <td>121913177</td>
                 <td>0985699138</td>
                 <td>Yên Dũng, Bắc giang</td>
             </tr>
             <tr>
-                <td>Đàm Đức trọng</td>
+                <td>Đàm Đức Trọng</td>
                 <td>Nam</td>
                 <td>121913177</td>
                 <td>0985699138</td>
