@@ -115,14 +115,15 @@
             </select>
         </div>
     </div>
-    <table class="bordered ">
+    <table class="bordered hovered">
         <thead>
             <tr>
-                <th><input type="text" placeholder="Họ tên" /></th>
-                <th><input type="text" placeholder="Giới tính" /></th>
-                <th><input type="text" placeholder="CMND" /></th>
-                <th><input type="text" placeholder="Điện thoại" /></th>
-                <th><input type="text" placeholder="Địa chỉ" /></th>
+                <th><input class="span2" type="text" placeholder="Họ tên" /></th>
+                <th><input class="span1" type="text" placeholder="Giới tính" /></th>
+                <th><input class="span2" type="text" placeholder="CMND" /></th>
+                <th><input class="span2" type="text" placeholder="Điện thoại" /></th>
+                <th><input class="span4" type="text" placeholder="Địa chỉ" /></th>
+                <th><input class="span1" type="text" placeholder="Tool" disabled="disabled" /></th>
             </tr>
         </thead>
         <tbody>
@@ -132,13 +133,7 @@
                 <td>121913177</td>
                 <td>0985699138</td>
                 <td>Yên Dũng, Bắc giang</td>
-            </tr>
-            <tr>
-                <td>Đàm ĐứcTtrọng</td>
-                <td>Nam</td>
-                <td>121913177</td>
-                <td>0985699138</td>
-                <td>Yên Dũng, Bắc giang</td>
+                <td><i class="icon-pencil"></i> <i class="icon-cancel"></i></td>
             </tr>
             <tr>
                 <td>Đàm Đức Trọng</td>
@@ -146,6 +141,15 @@
                 <td>121913177</td>
                 <td>0985699138</td>
                 <td>Yên Dũng, Bắc giang</td>
+                <td><i class="icon-pencil"></i> <i class="icon-cancel"></i></td>
+            </tr>
+            <tr>
+                <td>Đàm Đức Trọng</td>
+                <td>Nam</td>
+                <td>121913177</td>
+                <td>0985699138</td>
+                <td>Yên Dũng, Bắc giang</td>
+                <td><i class="icon-pencil"></i> <i class="icon-cancel"></i></td>
             </tr>           
         </tbody>
     </table>
