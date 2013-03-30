@@ -75,4 +75,17 @@ class Customer extends CI_Controller {
     
     $this->layout->view('test/index', $data);    
     } 
+
+     public function update(){
+    $data['title'] = 'customer';  
+    $update_data = array('name'=>'phamhoang', 
+                            'address' => 'vung tau',
+                            'birthday' => '1960-1-11',
+                            'passport' => '7777777777'
+                            );
+    $this->load->model('customer_model');  
+    $this->customer_model->update_customer(1,$update_data);
+    
+    $this->layout->view('test/index', $data);    
+    } 
 }
