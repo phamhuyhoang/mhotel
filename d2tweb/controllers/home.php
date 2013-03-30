@@ -13,7 +13,6 @@ class Home extends CI_Controller {
         $this->layout->setLayout("layout"); //Set file layout
 		
     }
-
 	public function index(){
         $data['title'] = 'Quản lý phòng khách sạn';
         $user_id  = $this->session->userdata('user_id');
