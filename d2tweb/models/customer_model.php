@@ -18,7 +18,11 @@ class Customer_model extends CI_Model{
          $this->db->delete('customers');
 
     }
-    function update_customer(){}
+    function update_customer($customers_id,$data){
+          $this->db->where('id', $customers_id);
+          $this->db->update('customers',$data);
+
+    }
     function search_customer(){}
     function get_customer($customers_id){
         $this->db->select('*');
